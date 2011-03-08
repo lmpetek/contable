@@ -1,0 +1,9 @@
+<h1>Detalles#new</h1>
+
+<%= semantic_form_for [@asiento, @detalle] do |fd| %>
+  <%= fd.input :cuenta, :as => :select, :collection => Cuenta.all.map{|c| [c.nombre, c.id]} %>
+  <%= fd.input :debe %>
+  <%= fd.input :haber %>
+  <%= fd.buttons %>
+<% end %>
+

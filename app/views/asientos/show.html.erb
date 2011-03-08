@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Descripcion:</b>
+  <%= @asiento.descripcion %>
+</p>
+<p>
+  <b>Fecha:</b>
+  <%= @asiento.fecha %>
+</p>
+<p>
+  <b>Ejercicio:</b>
+  <%= @asiento.ejercicio %>
+</p>
+
+<table class="tabla" width="100%">
+  <thead>
+    <tr>
+      <th width="30%" align="center">Cuenta</th>
+      <th width="30%" align="center">Descripcion</th>
+      <th width="20%" align="center">Debe</th>
+      <th width="20%" align="center">Haber</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @asiento.detalles.each do |fd| %>
+    <tr>
+      <td align="left"> <%= fd.cuenta.nombre %> </td>
+      <td align="left"> <%= fd.descripcion %> </td>
+      <td align="right"> <%= fd.debe %> </td>
+      <td align="right"> <%= fd.haber %> </td>
+    </tr>
+    <% end %>
+    <tr>
+      <td align="left"></td>
+      <td align="left"><b>Totales</b></td>
+      <td align="right"> <%= @total_debe %> </td>
+      <td align="right"> <%= @total_haber %> </td>	
+    </tr>
+  </tbody>
+</table>
+<%= link_to 'Edit', edit_asiento_path(@asiento) %> |
+<%= link_to 'Back', asientos_path %>

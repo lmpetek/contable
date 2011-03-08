@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  cuenta: 
+  asiento: 
+  descripcion: MyString
+  debe: 9.99
+  haber: 9.99
+
+two:
+  cuenta: 
+  asiento: 
+  descripcion: MyString
+  debe: 9.99
+  haber: 9.99

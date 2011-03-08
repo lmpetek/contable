@@ -1,0 +1,38 @@
+<%= semantic_form_for @asiento do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :descripcion %>
+    <%= f.input :fecha , :as => :date %>
+  <% end %>
+  <table class="tabla">
+    <thead>
+    <tr>
+      <th><h2>Detalle</h2></th>
+    </tr>
+      <tr>
+       <th>cuenta</th>
+       <th>debe</th>
+       <th>haber</th>
+      </tr>
+    </thead>
+    <tbody>
+  <%= f.semantic_fields_for :detalles do |fd| %>
+    <tr>
+    <%= fd.inputs do %>
+        <td>
+        <%= fd.input :cuenta, :label => false, :as => :select, :collection => Cuenta.all.map{|c| [c.nombre, c.id]} %>
+        </td>
+        <td>
+        <%= fd.input :debe, :label => false, :as => :numeric, :input_html => { :size => 10 } %>
+        </td>
+        <td>
+        <%= fd.input :haber, :label => false, :input_html => { :size => 10 } %>
+        </td>
+    <% end %>
+    </tr>
+  <% end %>
+    </tbody>
+  </table>
+  <%= f.buttons %>
+<% end %>
+<%= link_to 'New detalle', new_asiento_detalle_path(@asiento) %>
+
