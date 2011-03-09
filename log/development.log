@@ -4783,3 +4783,1411 @@ Started GET "/asientos/5" for 127.0.0.1 at 2011-03-08 13:05:08 -0300
   [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
 Rendered asientos/show.html.erb within layouts/application (67.1ms)
 Completed 200 OK in 115ms (Views: 70.2ms | ActiveRecord: 2.9ms)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateCuentas (20110112175004)
+Migrating to CreateAsientos (20110112175502)
+Migrating to CreateDetalles (20110112175741)
+Migrating to CreateEjercicios (20110112215718)
+Migrating to CreateCentroCostos (20110309001349)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE TABLE "centro_costos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "codigo" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110309001349')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("asientos")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("centro_costos")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("cuentas")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("detalles")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("ejercicios")
+
+
+Started GET "/centro_costos" for 127.0.0.1 at 2011-03-08 21:14:58 -0300
+  Processing by CentroCostosController#index as HTML
+  [1m[36mCentroCosto Load (0.5ms)[0m  [1mSELECT "centro_costos".* FROM "centro_costos"[0m
+Rendered centro_costos/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 72ms (Views: 7.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/centro_costos/new" for 127.0.0.1 at 2011-03-08 21:15:03 -0300
+  Processing by CentroCostosController#new as HTML
+Rendered centro_costos/_form.html.erb (43.0ms)
+Rendered centro_costos/new.html.erb within layouts/application (47.6ms)
+Completed 200 OK in 64ms (Views: 52.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/centro_costos" for 127.0.0.1 at 2011-03-08 21:15:13 -0300
+  Processing by CentroCostosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JYeBJzCq49nPeSE/zetwc7P20MPgg059zWjpgfYCtqw=", "centro_costo"=>{"nombre"=>"ventas", "codigo"=>"1"}, "commit"=>"Create Centro costo"}
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "centro_costos" ("nombre", "codigo", "created_at", "updated_at") VALUES ('ventas', '1', '2011-03-09 00:15:13.256867', '2011-03-09 00:15:13.256867')[0m
+Redirected to http://localhost:3000/centro_costos/1
+Completed 302 Found in 41ms
+
+
+Started GET "/centro_costos/1" for 127.0.0.1 at 2011-03-08 21:15:13 -0300
+  Processing by CentroCostosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCentroCosto Load (0.2ms)[0m  SELECT "centro_costos".* FROM "centro_costos" WHERE ("centro_costos"."id" = 1) LIMIT 1
+Rendered centro_costos/show.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 61ms (Views: 13.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/centro_costos" for 127.0.0.1 at 2011-03-08 21:15:16 -0300
+  Processing by CentroCostosController#index as HTML
+  [1m[36mCentroCosto Load (0.5ms)[0m  [1mSELECT "centro_costos".* FROM "centro_costos"[0m
+Rendered centro_costos/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 23ms (Views: 13.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/centro_costos/new" for 127.0.0.1 at 2011-03-08 21:15:17 -0300
+  Processing by CentroCostosController#new as HTML
+Rendered centro_costos/_form.html.erb (6.7ms)
+Rendered centro_costos/new.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 26ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/centro_costos" for 127.0.0.1 at 2011-03-08 21:15:25 -0300
+  Processing by CentroCostosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JYeBJzCq49nPeSE/zetwc7P20MPgg059zWjpgfYCtqw=", "centro_costo"=>{"nombre"=>"administracion", "codigo"=>"2"}, "commit"=>"Create Centro costo"}
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "centro_costos" ("nombre", "codigo", "created_at", "updated_at") VALUES ('administracion', '2', '2011-03-09 00:15:25.888833', '2011-03-09 00:15:25.888833')
+Redirected to http://localhost:3000/centro_costos/2
+Completed 302 Found in 61ms
+
+
+Started GET "/centro_costos/2" for 127.0.0.1 at 2011-03-08 21:15:25 -0300
+  Processing by CentroCostosController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCentroCosto Load (0.2ms)[0m  [1mSELECT "centro_costos".* FROM "centro_costos" WHERE ("centro_costos"."id" = 2) LIMIT 1[0m
+Rendered centro_costos/show.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 25ms (Views: 12.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/centro_costos" for 127.0.0.1 at 2011-03-08 21:15:27 -0300
+  Processing by CentroCostosController#index as HTML
+  [1m[35mCentroCosto Load (0.5ms)[0m  SELECT "centro_costos".* FROM "centro_costos"
+Rendered centro_costos/index.html.erb within layouts/application (46.1ms)
+Completed 200 OK in 60ms (Views: 49.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/centro_costos/new" for 127.0.0.1 at 2011-03-08 21:15:29 -0300
+  Processing by CentroCostosController#new as HTML
+Rendered centro_costos/_form.html.erb (6.3ms)
+Rendered centro_costos/new.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 24ms (Views: 13.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/centro_costos" for 127.0.0.1 at 2011-03-08 21:15:37 -0300
+  Processing by CentroCostosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JYeBJzCq49nPeSE/zetwc7P20MPgg059zWjpgfYCtqw=", "centro_costo"=>{"nombre"=>"compras", "codigo"=>"3"}, "commit"=>"Create Centro costo"}
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "centro_costos" ("nombre", "codigo", "created_at", "updated_at") VALUES ('compras', '3', '2011-03-09 00:15:37.165298', '2011-03-09 00:15:37.165298')[0m
+Redirected to http://localhost:3000/centro_costos/3
+Completed 302 Found in 60ms
+
+
+Started GET "/centro_costos/3" for 127.0.0.1 at 2011-03-08 21:15:37 -0300
+  Processing by CentroCostosController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCentroCosto Load (0.2ms)[0m  SELECT "centro_costos".* FROM "centro_costos" WHERE ("centro_costos"."id" = 3) LIMIT 1
+Rendered centro_costos/show.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 25ms (Views: 12.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/centro_costos" for 127.0.0.1 at 2011-03-08 21:15:39 -0300
+  Processing by CentroCostosController#index as HTML
+  [1m[36mCentroCosto Load (0.5ms)[0m  [1mSELECT "centro_costos".* FROM "centro_costos"[0m
+Rendered centro_costos/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 25ms (Views: 15.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/centro_costos/new" for 127.0.0.1 at 2011-03-08 21:15:41 -0300
+  Processing by CentroCostosController#new as HTML
+Rendered centro_costos/_form.html.erb (6.2ms)
+Rendered centro_costos/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 24ms (Views: 13.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/centro_costos" for 127.0.0.1 at 2011-03-08 21:15:53 -0300
+  Processing by CentroCostosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JYeBJzCq49nPeSE/zetwc7P20MPgg059zWjpgfYCtqw=", "centro_costo"=>{"nombre"=>"deposito", "codigo"=>"4"}, "commit"=>"Create Centro costo"}
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "centro_costos" ("nombre", "codigo", "created_at", "updated_at") VALUES ('deposito', '4', '2011-03-09 00:15:53.346249', '2011-03-09 00:15:53.346249')
+Redirected to http://localhost:3000/centro_costos/4
+Completed 302 Found in 25ms
+
+
+Started GET "/centro_costos/4" for 127.0.0.1 at 2011-03-08 21:15:53 -0300
+  Processing by CentroCostosController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCentroCosto Load (0.2ms)[0m  [1mSELECT "centro_costos".* FROM "centro_costos" WHERE ("centro_costos"."id" = 4) LIMIT 1[0m
+Rendered centro_costos/show.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 24ms (Views: 12.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/centro_costos" for 127.0.0.1 at 2011-03-08 21:15:56 -0300
+  Processing by CentroCostosController#index as HTML
+  [1m[35mCentroCosto Load (0.6ms)[0m  SELECT "centro_costos".* FROM "centro_costos"
+Rendered centro_costos/index.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 33ms (Views: 22.6ms | ActiveRecord: 0.6ms)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateCuentas (20110112175004)
+Migrating to CreateAsientos (20110112175502)
+Migrating to CreateDetalles (20110112175741)
+Migrating to CreateEjercicios (20110112215718)
+Migrating to CreateCentroCostos (20110309001349)
+Migrating to AddCentroCostoToDetalle (20110309020123)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.6ms)[0m  [1mALTER TABLE "detalles" ADD "CentroCosto" reference[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110309020123')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("asientos")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("centro_costos")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("cuentas")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("ejercicios")[0m
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateCuentas (20110112175004)
+Migrating to CreateAsientos (20110112175502)
+Migrating to CreateDetalles (20110112175741)
+Migrating to CreateEjercicios (20110112215718)
+Migrating to CreateCentroCostos (20110309001349)
+Migrating to AddCentroCostoToDetalle (20110309020123)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("asientos")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("centro_costos")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("cuentas")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("ejercicios")[0m
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateCuentas (20110112175004)
+Migrating to CreateAsientos (20110112175502)
+Migrating to CreateDetalles (20110112175741)
+Migrating to CreateEjercicios (20110112215718)
+Migrating to CreateCentroCostos (20110309001349)
+Migrating to AddCentroCostoToDetalle (20110309020123)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("asientos")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("centro_costos")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("cuentas")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("ejercicios")[0m
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to AddCentroCostoToDetalle (20110309020123)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to AddCentroCostoToDetalle (20110309020123)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-08 23:38:55 -0300
+  Processing by AsientosController#index as HTML
+  [1m[36mAsiento Load (1.2ms)[0m  [1mSELECT "asientos".* FROM "asientos"[0m
+Rendered asientos/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 169ms (Views: 24.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/asientos/new" for 127.0.0.1 at 2011-03-08 23:38:58 -0300
+  Processing by AsientosController#new as HTML
+Rendered asientos/_form.html.erb (38.9ms)
+Rendered asientos/new.html.erb within layouts/application (40.9ms)
+Completed   in 133ms
+
+ActionView::Template::Error (undefined local variable or method `fd' for #<#<Class:0x00000103d3ccb0>:0x00000103d37e90>):
+    2:   <%= f.inputs do %>
+    3:     <%= f.input :descripcion %>
+    4:     <%= f.input :fecha , :as => :date %>
+    5:     <%= fd.input :ejercicio, :as => :select, :collection => Ejercicio.all.map{|c| [c.descripcion, c.id]} %>
+    6: 
+    7:   <% end %>
+    8:   <table class="tabla">
+  app/views/asientos/_form.html.erb:5:in `block (2 levels) in _app_views_asientos__form_html_erb___4544708299695260566_2179536400__842457296478983623'
+  app/views/asientos/_form.html.erb:2:in `block in _app_views_asientos__form_html_erb___4544708299695260566_2179536400__842457296478983623'
+  app/views/asientos/_form.html.erb:1:in `_app_views_asientos__form_html_erb___4544708299695260566_2179536400__842457296478983623'
+  app/views/asientos/new.html.erb:3:in `_app_views_asientos_new_html_erb___4447343733937080432_2179559940__3096943684369449716'
+  app/controllers/asientos_controller.rb:39:in `new'
+
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.1ms)
+
+
+Started GET "/asientos/new" for 127.0.0.1 at 2011-03-08 23:39:25 -0300
+  Processing by AsientosController#new as HTML
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios"
+  [1m[36mCuenta Load (0.3ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+Rendered asientos/_form.html.erb (104.1ms)
+Rendered asientos/new.html.erb within layouts/application (105.5ms)
+Completed   in 182ms
+
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"detalles", :asiento_id=>#<Asiento id: nil, descripcion: nil, fecha: nil, ejercicio_id: nil, created_at: nil, updated_at: nil>}):
+    36:   </table>
+    37:   <%= f.buttons %>
+    38: <% end %>
+    39: <%= link_to 'New detalle', new_asiento_detalle_path(@asiento) %>
+  app/views/asientos/_form.html.erb:39:in `_app_views_asientos__form_html_erb___4544708299695260566_2178125720__842457296478983623'
+  app/views/asientos/new.html.erb:3:in `_app_views_asientos_new_html_erb___4447343733937080432_2178160980__3096943684369449716'
+  app/controllers/asientos_controller.rb:39:in `new'
+
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.3ms)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-08 23:39:44 -0300
+  Processing by AsientosController#index as HTML
+  [1m[35mAsiento Load (1.2ms)[0m  SELECT "asientos".* FROM "asientos"
+Rendered asientos/index.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 44ms (Views: 26.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/asientos/new" for 127.0.0.1 at 2011-03-08 23:39:46 -0300
+  Processing by AsientosController#new as HTML
+  [1m[36mEjercicio Load (0.2ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios"[0m
+  [1m[35mCuenta Load (0.3ms)[0m  SELECT "cuentas".* FROM "cuentas"
+Rendered asientos/_form.html.erb (100.6ms)
+Rendered asientos/new.html.erb within layouts/application (102.1ms)
+Completed   in 144ms
+
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"detalles", :asiento_id=>#<Asiento id: nil, descripcion: nil, fecha: nil, ejercicio_id: nil, created_at: nil, updated_at: nil>}):
+    36:   </table>
+    37:   <%= f.buttons %>
+    38: <% end %>
+    39: <%= link_to 'New detalle', new_asiento_detalle_path(@asiento) %>
+  app/views/asientos/_form.html.erb:39:in `_app_views_asientos__form_html_erb___4544708299695260566_2177040860__842457296478983623'
+  app/views/asientos/new.html.erb:3:in `_app_views_asientos_new_html_erb___4447343733937080432_2177077320__3096943684369449716'
+  app/controllers/asientos_controller.rb:39:in `new'
+
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.2ms)
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.4ms)
+
+
+Started GET "/asientos/new" for 127.0.0.1 at 2011-03-08 23:40:56 -0300
+  Processing by AsientosController#new as HTML
+  [1m[36mEjercicio Load (0.2ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios"[0m
+  [1m[35mCuenta Load (0.3ms)[0m  SELECT "cuentas".* FROM "cuentas"
+Rendered asientos/_form.html.erb (99.5ms)
+Rendered asientos/new.html.erb within layouts/application (100.9ms)
+Completed   in 180ms
+
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"detalles", :asiento_id=>#<Asiento id: nil, descripcion: nil, fecha: nil, ejercicio_id: nil, created_at: nil, updated_at: nil>}):
+    36:   </table>
+    37:   <%= f.buttons %>
+    38: <% end %>
+    39: <%= link_to 'New detalle', new_asiento_detalle_path(@asiento) %>
+  app/views/asientos/_form.html.erb:39:in `_app_views_asientos__form_html_erb___4544708299695260566_2179164040__842457296478983623'
+  app/views/asientos/new.html.erb:3:in `_app_views_asientos_new_html_erb___4447343733937080432_2179177440__3096943684369449716'
+  app/controllers/asientos_controller.rb:39:in `new'
+
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.4ms)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-08 23:41:01 -0300
+  Processing by AsientosController#index as HTML
+  [1m[36mAsiento Load (1.1ms)[0m  [1mSELECT "asientos".* FROM "asientos"[0m
+Rendered asientos/index.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 35ms (Views: 21.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/asientos/new" for 127.0.0.1 at 2011-03-08 23:41:03 -0300
+  Processing by AsientosController#new as HTML
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios"
+  [1m[36mCuenta Load (0.3ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+Rendered asientos/_form.html.erb (100.1ms)
+Rendered asientos/new.html.erb within layouts/application (101.5ms)
+Completed   in 182ms
+
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"detalles", :asiento_id=>#<Asiento id: nil, descripcion: nil, fecha: nil, ejercicio_id: nil, created_at: nil, updated_at: nil>}):
+    36:   </table>
+    37:   <%= f.buttons %>
+    38: <% end %>
+    39: <%= link_to 'New detalle', new_asiento_detalle_path(@asiento) %>
+  app/views/asientos/_form.html.erb:39:in `_app_views_asientos__form_html_erb___4544708299695260566_2178263700__842457296478983623'
+  app/views/asientos/new.html.erb:3:in `_app_views_asientos_new_html_erb___4447343733937080432_2178284220__3096943684369449716'
+  app/controllers/asientos_controller.rb:39:in `new'
+
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.4ms)
+
+
+Started GET "/asientos/new" for 127.0.0.1 at 2011-03-08 23:41:39 -0300
+  Processing by AsientosController#new as HTML
+  [1m[35mCuenta Load (0.3ms)[0m  SELECT "cuentas".* FROM "cuentas"
+Rendered asientos/_form.html.erb (37.5ms)
+Rendered asientos/new.html.erb within layouts/application (39.0ms)
+Completed   in 119ms
+
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"detalles", :asiento_id=>#<Asiento id: nil, descripcion: nil, fecha: nil, ejercicio_id: nil, created_at: nil, updated_at: nil>}):
+    34:   </table>
+    35:   <%= f.buttons %>
+    36: <% end %>
+    37: <%= link_to 'New detalle', new_asiento_detalle_path(@asiento) %>
+  app/views/asientos/_form.html.erb:37:in `_app_views_asientos__form_html_erb___4544708299695260566_2179789000__842457296478983623'
+  app/views/asientos/new.html.erb:3:in `_app_views_asientos_new_html_erb___4447343733937080432_2179801480__3096943684369449716'
+  app/controllers/asientos_controller.rb:39:in `new'
+
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.6ms)
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.9ms)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-08 23:43:01 -0300
+  Processing by AsientosController#index as HTML
+  [1m[36mAsiento Load (1.2ms)[0m  [1mSELECT "asientos".* FROM "asientos"[0m
+Rendered asientos/index.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 74ms (Views: 21.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/asientos/5/edit" for 127.0.0.1 at 2011-03-08 23:43:03 -0300
+  Processing by AsientosController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAsiento Load (0.3ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 5) LIMIT 1[0m
+  [1m[35mDetalle Load (2.6ms)[0m  SELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 5)
+  [1m[36mCuenta Load (0.3ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+Rendered asientos/_form.html.erb (175.8ms)
+Rendered asientos/edit.html.erb within layouts/application (180.1ms)
+Completed 200 OK in 200ms (Views: 180.6ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/asientos/5/edit" for 127.0.0.1 at 2011-03-08 23:44:13 -0300
+  Processing by AsientosController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAsiento Load (0.3ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 5) LIMIT 1[0m
+  [1m[35mEjercicio Load (0.3ms)[0m  SELECT "ejercicios".* FROM "ejercicios"
+  [1m[36mDetalle Load (2.5ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 5)[0m
+  [1m[35mCuenta Load (0.3ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+Rendered asientos/_form.html.erb (204.8ms)
+Rendered asientos/edit.html.erb within layouts/application (209.1ms)
+Completed 200 OK in 228ms (Views: 209.1ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/asientos/5/edit" for 127.0.0.1 at 2011-03-08 23:45:25 -0300
+  Processing by AsientosController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mAsiento Load (0.4ms)[0m  SELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 5) LIMIT 1
+  [1m[36mEjercicio Load (0.3ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios"[0m
+  [1m[35mDetalle Load (2.6ms)[0m  SELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 5)
+  [1m[36mCuenta Load (0.3ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+  [1m[35mCuenta Load (0.3ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+Rendered asientos/_form.html.erb (210.3ms)
+Rendered asientos/edit.html.erb within layouts/application (214.5ms)
+Completed 200 OK in 237ms (Views: 214.3ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/asientos/5" for 127.0.0.1 at 2011-03-08 23:45:37 -0300
+  Processing by AsientosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JYeBJzCq49nPeSE/zetwc7P20MPgg059zWjpgfYCtqw=", "asiento"=>{"descripcion"=>"asiento 4 - modificado", "fecha(1i)"=>"2011", "fecha(2i)"=>"1", "fecha(3i)"=>"11", "ejercicio_id"=>"1", "detalles_attributes"=>{"0"=>{"cuenta_id"=>"2", "debe"=>"101.1", "haber"=>"", "id"=>"3"}, "1"=>{"cuenta_id"=>"1", "debe"=>"", "haber"=>"15.4", "id"=>"6"}, "2"=>{"cuenta_id"=>"3", "debe"=>"", "haber"=>"131", "id"=>"7"}, "3"=>{"cuenta_id"=>"2", "debe"=>"45", "haber"=>"", "id"=>"8"}, "4"=>{"cuenta_id"=>"1", "debe"=>"", "haber"=>"100", "id"=>"9"}, "5"=>{"cuenta_id"=>"2", "debe"=>"1231", "haber"=>"", "id"=>"10"}, "6"=>{"cuenta_id"=>"1", "debe"=>"10", "haber"=>"", "id"=>"11"}}}, "commit"=>"Update Asiento", "id"=>"5"}
+  [1m[36mAsiento Load (0.3ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 5) LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: ejercicio_id
+  [1m[35mDetalle Load (2.1ms)[0m  SELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 5) AND ("detalles"."id" IN (3, 6, 7, 8, 9, 10, 11))
+Redirected to http://localhost:3000/asientos/5
+Completed 302 Found in 99ms
+
+
+Started GET "/asientos/5" for 127.0.0.1 at 2011-03-08 23:45:37 -0300
+  Processing by AsientosController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAsiento Load (0.4ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 5) LIMIT 1[0m
+  [1m[35mDetalle Load (3.5ms)[0m  SELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 5)
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+  [1m[36mCuenta Load (0.1ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+Rendered asientos/show.html.erb within layouts/application (28.7ms)
+Completed 200 OK in 118ms (Views: 32.3ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-08 23:50:33 -0300
+  Processing by AsientosController#index as HTML
+  [1m[35mAsiento Load (1.2ms)[0m  SELECT "asientos".* FROM "asientos"
+Rendered asientos/index.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 68ms (Views: 21.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/asientos/1/edit" for 127.0.0.1 at 2011-03-08 23:50:38 -0300
+  Processing by AsientosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAsiento Load (0.3ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 1) LIMIT 1[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios"
+  [1m[36mDetalle Load (0.6ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 1)[0m
+  [1m[35mCuenta Load (0.3ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+Rendered asientos/_form.html.erb (182.1ms)
+Rendered asientos/edit.html.erb within layouts/application (186.4ms)
+Completed 200 OK in 205ms (Views: 188.9ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/asientos/1" for 127.0.0.1 at 2011-03-08 23:50:44 -0300
+  Processing by AsientosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JYeBJzCq49nPeSE/zetwc7P20MPgg059zWjpgfYCtqw=", "asiento"=>{"descripcion"=>"apertura", "fecha(1i)"=>"2011", "fecha(2i)"=>"1", "fecha(3i)"=>"1", "ejercicio_id"=>"1", "detalles_attributes"=>{"0"=>{"cuenta_id"=>"1", "debe"=>"10", "haber"=>"", "id"=>"12"}}}, "commit"=>"Update Asiento", "id"=>"1"}
+  [1m[35mAsiento Load (0.3ms)[0m  SELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 1) LIMIT 1
+WARNING: Can't mass-assign protected attributes: ejercicio_id
+  [1m[36mDetalle Load (0.6ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 1) AND ("detalles"."id" IN (12))[0m
+Redirected to http://localhost:3000/asientos/1
+Completed 302 Found in 89ms
+
+
+Started GET "/asientos/1" for 127.0.0.1 at 2011-03-08 23:50:44 -0300
+  Processing by AsientosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAsiento Load (0.3ms)[0m  SELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 1) LIMIT 1
+  [1m[36mDetalle Load (0.5ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 1)[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+Rendered asientos/show.html.erb within layouts/application (63.3ms)
+Completed 200 OK in 109ms (Views: 67.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-08 23:50:47 -0300
+  Processing by AsientosController#index as HTML
+  [1m[36mAsiento Load (1.2ms)[0m  [1mSELECT "asientos".* FROM "asientos"[0m
+Rendered asientos/index.html.erb within layouts/application (55.8ms)
+Completed 200 OK in 75ms (Views: 59.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/asientos/5/edit" for 127.0.0.1 at 2011-03-08 23:55:16 -0300
+  Processing by AsientosController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mAsiento Load (0.3ms)[0m  SELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 5) LIMIT 1
+  [1m[36mEjercicio Load (0.2ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios"[0m
+  [1m[35mDetalle Load (2.6ms)[0m  SELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 5)
+  [1m[36mCuenta Load (0.3ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+Rendered asientos/_form.html.erb (203.5ms)
+Rendered asientos/edit.html.erb within layouts/application (207.7ms)
+Completed 200 OK in 227ms (Views: 208.0ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/asientos/5" for 127.0.0.1 at 2011-03-08 23:56:58 -0300
+  Processing by AsientosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JYeBJzCq49nPeSE/zetwc7P20MPgg059zWjpgfYCtqw=", "asiento"=>{"descripcion"=>"asiento 4 - modificado", "fecha(1i)"=>"2011", "fecha(2i)"=>"1", "fecha(3i)"=>"11", "ejercicio_id"=>"1", "detalles_attributes"=>{"0"=>{"cuenta_id"=>"2", "debe"=>"101.0", "haber"=>"", "id"=>"3"}, "1"=>{"cuenta_id"=>"1", "debe"=>"", "haber"=>"15.4", "id"=>"6"}, "2"=>{"cuenta_id"=>"3", "debe"=>"", "haber"=>"131", "id"=>"7"}, "3"=>{"cuenta_id"=>"2", "debe"=>"45", "haber"=>"", "id"=>"8"}, "4"=>{"cuenta_id"=>"1", "debe"=>"", "haber"=>"100", "id"=>"9"}, "5"=>{"cuenta_id"=>"2", "debe"=>"1231", "haber"=>"", "id"=>"10"}, "6"=>{"cuenta_id"=>"1", "debe"=>"10", "haber"=>"", "id"=>"11"}}}, "commit"=>"Update Asiento", "id"=>"5"}
+  [1m[36mAsiento Load (0.3ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 5) LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: ejercicio_id
+  [1m[35mDetalle Load (39.5ms)[0m  SELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 5) AND ("detalles"."id" IN (3, 6, 7, 8, 9, 10, 11))
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "detalles" SET "debe" = 101.0, "updated_at" = '2011-03-09 02:56:58.952278' WHERE ("detalles"."id" = 3)[0m
+Redirected to http://localhost:3000/asientos/5
+Completed 302 Found in 96ms
+
+
+Started GET "/asientos/5" for 127.0.0.1 at 2011-03-08 23:56:58 -0300
+  Processing by AsientosController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mAsiento Load (0.3ms)[0m  SELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 5) LIMIT 1
+  [1m[36mDetalle Load (2.0ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 5)[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+Rendered asientos/show.html.erb within layouts/application (30.6ms)
+Completed 200 OK in 118ms (Views: 33.9ms | ActiveRecord: 43.2ms)
+
+
+Started POST "/asientos/5" for 127.0.0.1 at 2011-03-08 23:57:15 -0300
+  Processing by AsientosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JYeBJzCq49nPeSE/zetwc7P20MPgg059zWjpgfYCtqw=", "asiento"=>{"descripcion"=>"asiento 4 - modificado 1", "fecha(1i)"=>"2011", "fecha(2i)"=>"1", "fecha(3i)"=>"11", "ejercicio_id"=>"1", "detalles_attributes"=>{"0"=>{"cuenta_id"=>"2", "debe"=>"101.1", "haber"=>"", "id"=>"3"}, "1"=>{"cuenta_id"=>"1", "debe"=>"", "haber"=>"15.4", "id"=>"6"}, "2"=>{"cuenta_id"=>"3", "debe"=>"", "haber"=>"131", "id"=>"7"}, "3"=>{"cuenta_id"=>"2", "debe"=>"45", "haber"=>"", "id"=>"8"}, "4"=>{"cuenta_id"=>"1", "debe"=>"", "haber"=>"100", "id"=>"9"}, "5"=>{"cuenta_id"=>"2", "debe"=>"1231", "haber"=>"", "id"=>"10"}, "6"=>{"cuenta_id"=>"1", "debe"=>"10", "haber"=>"", "id"=>"11"}}}, "commit"=>"Update Asiento", "id"=>"5"}
+  [1m[36mAsiento Load (0.4ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 5) LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: ejercicio_id
+  [1m[35mDetalle Load (2.1ms)[0m  SELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 5) AND ("detalles"."id" IN (3, 6, 7, 8, 9, 10, 11))
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "asientos" SET "descripcion" = 'asiento 4 - modificado 1', "updated_at" = '2011-03-09 02:57:15.913036' WHERE ("asientos"."id" = 5)[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "detalles" SET "debe" = 101.1, "updated_at" = '2011-03-09 02:57:15.914467' WHERE ("detalles"."id" = 3)
+Redirected to http://localhost:3000/asientos/5
+Completed 302 Found in 97ms
+
+
+Started GET "/asientos/5" for 127.0.0.1 at 2011-03-08 23:57:15 -0300
+  Processing by AsientosController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAsiento Load (0.3ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 5) LIMIT 1[0m
+  [1m[35mDetalle Load (2.0ms)[0m  SELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 5)
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+  [1m[36mCuenta Load (0.1ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+Rendered asientos/show.html.erb within layouts/application (28.9ms)
+Completed 200 OK in 115ms (Views: 32.0ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-08 23:58:27 -0300
+  Processing by AsientosController#index as HTML
+  [1m[35mAsiento Load (1.2ms)[0m  SELECT "asientos".* FROM "asientos"
+Rendered asientos/index.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 35ms (Views: 21.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/asientos/5/edit" for 127.0.0.1 at 2011-03-08 23:58:30 -0300
+  Processing by AsientosController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAsiento Load (0.4ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 5) LIMIT 1[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios"
+  [1m[36mDetalle Load (2.5ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 5)[0m
+  [1m[35mCuenta Load (0.3ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+Rendered asientos/_form.html.erb (165.9ms)
+Rendered asientos/edit.html.erb within layouts/application (170.0ms)
+Completed 200 OK in 227ms (Views: 170.1ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/asientos/5" for 127.0.0.1 at 2011-03-08 23:58:34 -0300
+  Processing by AsientosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JYeBJzCq49nPeSE/zetwc7P20MPgg059zWjpgfYCtqw=", "asiento"=>{"descripcion"=>"asiento 4 - modificado 1", "fecha(1i)"=>"2011", "fecha(2i)"=>"1", "fecha(3i)"=>"11", "ejercicio_id"=>"1", "detalles_attributes"=>{"0"=>{"cuenta_id"=>"2", "debe"=>"101.1", "haber"=>"", "id"=>"3"}, "1"=>{"cuenta_id"=>"1", "debe"=>"", "haber"=>"15.4", "id"=>"6"}, "2"=>{"cuenta_id"=>"3", "debe"=>"", "haber"=>"131", "id"=>"7"}, "3"=>{"cuenta_id"=>"2", "debe"=>"45", "haber"=>"", "id"=>"8"}, "4"=>{"cuenta_id"=>"1", "debe"=>"", "haber"=>"100", "id"=>"9"}, "5"=>{"cuenta_id"=>"2", "debe"=>"1231", "haber"=>"", "id"=>"10"}, "6"=>{"cuenta_id"=>"1", "debe"=>"10", "haber"=>"", "id"=>"11"}}}, "commit"=>"Update Asiento", "id"=>"5"}
+  [1m[35mAsiento Load (0.3ms)[0m  SELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 5) LIMIT 1
+WARNING: Can't mass-assign protected attributes: ejercicio_id
+  [1m[36mDetalle Load (2.0ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 5) AND ("detalles"."id" IN (3, 6, 7, 8, 9, 10, 11))[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios"
+  [1m[36mDetalle Load (2.6ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 5)[0m
+  [1m[35mCuenta Load (0.3ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+Rendered asientos/_form.html.erb (180.3ms)
+Rendered asientos/edit.html.erb within layouts/application (184.8ms)
+Completed 200 OK in 242ms (Views: 184.8ms | ActiveRecord: 6.2ms)
+
+
+Started POST "/asientos/5" for 127.0.0.1 at 2011-03-08 23:58:43 -0300
+  Processing by AsientosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JYeBJzCq49nPeSE/zetwc7P20MPgg059zWjpgfYCtqw=", "asiento"=>{"descripcion"=>"asiento 4 - modificado 1", "fecha(1i)"=>"2011", "fecha(2i)"=>"1", "fecha(3i)"=>"11", "ejercicio_id"=>"1", "detalles_attributes"=>{"0"=>{"cuenta_id"=>"2", "debe"=>"101.1", "haber"=>"", "id"=>"3"}, "1"=>{"cuenta_id"=>"1", "debe"=>"", "haber"=>"15.4", "id"=>"6"}, "2"=>{"cuenta_id"=>"3", "debe"=>"", "haber"=>"131.0", "id"=>"7"}, "3"=>{"cuenta_id"=>"2", "debe"=>"45.0", "haber"=>"", "id"=>"8"}, "4"=>{"cuenta_id"=>"1", "debe"=>"", "haber"=>"100.0", "id"=>"9"}, "5"=>{"cuenta_id"=>"2", "debe"=>"1231.0", "haber"=>"", "id"=>"10"}, "6"=>{"cuenta_id"=>"1", "debe"=>"10.0", "haber"=>"", "id"=>"11"}}}, "commit"=>"Update Asiento", "id"=>"5"}
+  [1m[35mAsiento Load (0.3ms)[0m  SELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 5) LIMIT 1
+WARNING: Can't mass-assign protected attributes: ejercicio_id
+  [1m[36mDetalle Load (2.2ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 5) AND ("detalles"."id" IN (3, 6, 7, 8, 9, 10, 11))[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios"
+  [1m[36mDetalle Load (2.6ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 5)[0m
+  [1m[35mCuenta Load (0.3ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+Rendered asientos/_form.html.erb (141.1ms)
+Rendered asientos/edit.html.erb within layouts/application (145.4ms)
+Completed 200 OK in 241ms (Views: 145.5ms | ActiveRecord: 6.2ms)
+
+
+Started POST "/asientos/5" for 127.0.0.1 at 2011-03-08 23:58:58 -0300
+  Processing by AsientosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JYeBJzCq49nPeSE/zetwc7P20MPgg059zWjpgfYCtqw=", "asiento"=>{"descripcion"=>"asiento 4 - modificado 1", "fecha(1i)"=>"2011", "fecha(2i)"=>"1", "fecha(3i)"=>"11", "ejercicio_id"=>"", "detalles_attributes"=>{"0"=>{"cuenta_id"=>"2", "debe"=>"101.1", "haber"=>"", "id"=>"3"}, "1"=>{"cuenta_id"=>"1", "debe"=>"", "haber"=>"15.4", "id"=>"6"}, "2"=>{"cuenta_id"=>"3", "debe"=>"", "haber"=>"131.0", "id"=>"7"}, "3"=>{"cuenta_id"=>"2", "debe"=>"45.0", "haber"=>"", "id"=>"8"}, "4"=>{"cuenta_id"=>"1", "debe"=>"", "haber"=>"100.0", "id"=>"9"}, "5"=>{"cuenta_id"=>"2", "debe"=>"1231.0", "haber"=>"", "id"=>"10"}, "6"=>{"cuenta_id"=>"1", "debe"=>"10.0", "haber"=>"", "id"=>"11"}}}, "commit"=>"Update Asiento", "id"=>"5"}
+  [1m[35mAsiento Load (0.4ms)[0m  SELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 5) LIMIT 1
+WARNING: Can't mass-assign protected attributes: ejercicio_id
+  [1m[36mDetalle Load (2.1ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 5) AND ("detalles"."id" IN (3, 6, 7, 8, 9, 10, 11))[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios"
+  [1m[36mDetalle Load (2.7ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 5)[0m
+  [1m[35mCuenta Load (0.3ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+Rendered asientos/_form.html.erb (176.8ms)
+Rendered asientos/edit.html.erb within layouts/application (181.5ms)
+Completed 200 OK in 277ms (Views: 181.4ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-08 23:59:27 -0300
+  Processing by AsientosController#index as HTML
+  [1m[35mAsiento Load (1.1ms)[0m  SELECT "asientos".* FROM "asientos"
+Rendered asientos/index.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 37ms (Views: 22.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/asientos/5/edit" for 127.0.0.1 at 2011-03-08 23:59:29 -0300
+  Processing by AsientosController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAsiento Load (0.4ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 5) LIMIT 1[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios"
+  [1m[36mDetalle Load (2.6ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 5)[0m
+  [1m[35mCuenta Load (0.3ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.3ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+Rendered asientos/_form.html.erb (164.6ms)
+Rendered asientos/edit.html.erb within layouts/application (168.7ms)
+Completed 200 OK in 226ms (Views: 168.7ms | ActiveRecord: 4.1ms)
+
+
+Started POST "/asientos/5" for 127.0.0.1 at 2011-03-08 23:59:33 -0300
+  Processing by AsientosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JYeBJzCq49nPeSE/zetwc7P20MPgg059zWjpgfYCtqw=", "asiento"=>{"descripcion"=>"asiento 4 - modificado 1", "fecha(1i)"=>"2011", "fecha(2i)"=>"1", "fecha(3i)"=>"11", "ejercicio_id"=>"1", "detalles_attributes"=>{"0"=>{"cuenta_id"=>"2", "debe"=>"101.1", "haber"=>"", "id"=>"3"}, "1"=>{"cuenta_id"=>"1", "debe"=>"", "haber"=>"15.4", "id"=>"6"}, "2"=>{"cuenta_id"=>"3", "debe"=>"", "haber"=>"131", "id"=>"7"}, "3"=>{"cuenta_id"=>"2", "debe"=>"45", "haber"=>"", "id"=>"8"}, "4"=>{"cuenta_id"=>"1", "debe"=>"", "haber"=>"100", "id"=>"9"}, "5"=>{"cuenta_id"=>"2", "debe"=>"1231", "haber"=>"", "id"=>"10"}, "6"=>{"cuenta_id"=>"1", "debe"=>"10", "haber"=>"", "id"=>"11"}}}, "commit"=>"Update Asiento", "id"=>"5"}
+  [1m[35mAsiento Load (0.3ms)[0m  SELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 5) LIMIT 1
+  [1m[36mDetalle Load (2.1ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 5) AND ("detalles"."id" IN (3, 6, 7, 8, 9, 10, 11))[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "asientos" SET "ejercicio_id" = 1, "updated_at" = '2011-03-09 02:59:34.106944' WHERE ("asientos"."id" = 5)
+Redirected to http://localhost:3000/asientos/5
+Completed 302 Found in 95ms
+
+
+Started GET "/asientos/5" for 127.0.0.1 at 2011-03-08 23:59:34 -0300
+  Processing by AsientosController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAsiento Load (0.2ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 5) LIMIT 1[0m
+  [1m[35mDetalle Load (2.0ms)[0m  SELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 5)
+  [1m[36mEjercicio Load (0.2ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCuenta Load (0.1ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+Rendered asientos/show.html.erb within layouts/application (89.1ms)
+Completed 200 OK in 138ms (Views: 93.4ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/asientos/5" for 127.0.0.1 at 2011-03-09 00:00:07 -0300
+  Processing by AsientosController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAsiento Load (0.6ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 5) LIMIT 1[0m
+  [1m[35mDetalle Load (2.0ms)[0m  SELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 5)
+  [1m[36mEjercicio Load (0.2ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1
+  [1m[36mCuenta Load (0.3ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+Rendered asientos/show.html.erb within layouts/application (88.7ms)
+Completed 200 OK in 177ms (Views: 91.8ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-09 00:00:16 -0300
+  Processing by AsientosController#index as HTML
+  [1m[36mAsiento Load (1.0ms)[0m  [1mSELECT "asientos".* FROM "asientos"[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+Rendered asientos/index.html.erb within layouts/application (81.2ms)
+Completed 200 OK in 99ms (Views: 84.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-09 00:00:40 -0300
+  Processing by AsientosController#index as HTML
+  [1m[36mAsiento Load (1.0ms)[0m  [1mSELECT "asientos".* FROM "asientos"[0m
+Rendered asientos/index.html.erb within layouts/application (7.8ms)
+Completed   in 25ms
+
+ActionView::Template::Error (undefined method `descripcion' for nil:NilClass):
+    14:   <tr>
+    15:     <td><%= asiento.descripcion %></td>
+    16:     <td><%= asiento.fecha %></td>
+    17:     <td><%= asiento.ejercicio.descripcion %></td>
+    18:     <td><%= link_to 'Show', asiento %></td>
+    19:     <td><%= link_to 'Edit', edit_asiento_path(asiento) %></td>
+    20:     <td><%= link_to 'Imprimir', asiento, :confirm => 'quiere imprimir?', :method => :print %></td>
+  app/views/asientos/index.html.erb:17:in `block in _app_views_asientos_index_html_erb__2407739416528079888_2177165700__3096943684369449716'
+  app/views/asientos/index.html.erb:13:in `each'
+  app/views/asientos/index.html.erb:13:in `_app_views_asientos_index_html_erb__2407739416528079888_2177165700__3096943684369449716'
+  app/controllers/asientos_controller.rb:8:in `index'
+
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.9ms)
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.2ms)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-09 00:01:38 -0300
+  Processing by AsientosController#index as HTML
+  [1m[35mAsiento Load (1.0ms)[0m  SELECT "asientos".* FROM "asientos"
+Rendered asientos/index.html.erb within layouts/application (7.6ms)
+Completed   in 25ms
+
+ActionView::Template::Error (undefined method `descripcion' for nil:NilClass):
+    14:   <tr>
+    15:     <td><%= asiento.descripcion %></td>
+    16:     <td><%= asiento.fecha %></td>
+    17:     <td><%= asiento.ejercicio.descripcion unless asiento.ejercicio.descripcion.nil? %></td>
+    18:     <td><%= link_to 'Show', asiento %></td>
+    19:     <td><%= link_to 'Edit', edit_asiento_path(asiento) %></td>
+    20:     <td><%= link_to 'Imprimir', asiento, :confirm => 'quiere imprimir?', :method => :print %></td>
+  app/views/asientos/index.html.erb:17:in `block in _app_views_asientos_index_html_erb__2407739416528079888_2178711540__3096943684369449716'
+  app/views/asientos/index.html.erb:13:in `each'
+  app/views/asientos/index.html.erb:13:in `_app_views_asientos_index_html_erb__2407739416528079888_2178711540__3096943684369449716'
+  app/controllers/asientos_controller.rb:8:in `index'
+
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.9ms)
+Rendered /Users/luis/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.1ms)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-09 00:04:14 -0300
+  Processing by AsientosController#index as HTML
+  [1m[36mAsiento Load (1.0ms)[0m  [1mSELECT "asientos".* FROM "asientos"[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+Rendered asientos/index.html.erb within layouts/application (77.3ms)
+Completed 200 OK in 95ms (Views: 81.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/asientos/4/edit" for 127.0.0.1 at 2011-03-09 00:04:24 -0300
+  Processing by AsientosController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mAsiento Load (0.4ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 4) LIMIT 1[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios"
+  [1m[36mDetalle Load (1.0ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 4)[0m
+  [1m[35mCuenta Load (0.3ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+Rendered asientos/_form.html.erb (154.3ms)
+Rendered asientos/edit.html.erb within layouts/application (158.7ms)
+Completed 200 OK in 215ms (Views: 161.1ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/asientos/4" for 127.0.0.1 at 2011-03-09 00:04:27 -0300
+  Processing by AsientosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JYeBJzCq49nPeSE/zetwc7P20MPgg059zWjpgfYCtqw=", "asiento"=>{"descripcion"=>"asiento 3", "fecha(1i)"=>"2011", "fecha(2i)"=>"1", "fecha(3i)"=>"10", "ejercicio_id"=>"1", "detalles_attributes"=>{"0"=>{"cuenta_id"=>"1", "debe"=>"", "haber"=>"100", "id"=>"2"}, "1"=>{"cuenta_id"=>"1", "debe"=>"0", "haber"=>"101", "id"=>"4"}, "2"=>{"cuenta_id"=>"1", "debe"=>"12", "haber"=>"13", "id"=>"5"}}}, "commit"=>"Update Asiento", "id"=>"4"}
+  [1m[35mAsiento Load (38.2ms)[0m  SELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 4) LIMIT 1
+  [1m[36mDetalle Load (0.9ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 4) AND ("detalles"."id" IN (2, 4, 5))[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "asientos" SET "ejercicio_id" = 1, "updated_at" = '2011-03-09 03:04:27.673453' WHERE ("asientos"."id" = 4)
+Redirected to http://localhost:3000/asientos/4
+Completed 302 Found in 96ms
+
+
+Started GET "/asientos/4" for 127.0.0.1 at 2011-03-09 00:04:27 -0300
+  Processing by AsientosController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mAsiento Load (0.2ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 4) LIMIT 1[0m
+  [1m[35mDetalle Load (0.8ms)[0m  SELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 4)
+  [1m[36mEjercicio Load (0.2ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+Rendered asientos/show.html.erb within layouts/application (86.2ms)
+Completed 200 OK in 176ms (Views: 90.0ms | ActiveRecord: 40.8ms)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-09 00:04:31 -0300
+  Processing by AsientosController#index as HTML
+  [1m[36mAsiento Load (0.9ms)[0m  [1mSELECT "asientos".* FROM "asientos"[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+Rendered asientos/index.html.erb within layouts/application (80.2ms)
+Completed 200 OK in 98ms (Views: 84.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/asientos/3/edit" for 127.0.0.1 at 2011-03-09 00:04:33 -0300
+  Processing by AsientosController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mAsiento Load (0.5ms)[0m  SELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 3) LIMIT 1
+  [1m[36mEjercicio Load (0.3ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios"[0m
+  [1m[35mDetalle Load (0.5ms)[0m  SELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 3)
+  [1m[36mCuenta Load (0.3ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+  [1m[35mCuenta Load (0.4ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+Rendered asientos/_form.html.erb (209.6ms)
+Rendered asientos/edit.html.erb within layouts/application (216.2ms)
+Completed 200 OK in 237ms (Views: 218.7ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/asientos/3" for 127.0.0.1 at 2011-03-09 00:04:37 -0300
+  Processing by AsientosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JYeBJzCq49nPeSE/zetwc7P20MPgg059zWjpgfYCtqw=", "asiento"=>{"descripcion"=>"dadasdad", "fecha(1i)"=>"2011", "fecha(2i)"=>"1", "fecha(3i)"=>"2", "ejercicio_id"=>"1", "detalles_attributes"=>{"0"=>{"cuenta_id"=>"1", "debe"=>"130", "haber"=>"0", "id"=>"1"}}}, "commit"=>"Update Asiento", "id"=>"3"}
+  [1m[36mAsiento Load (0.4ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 3) LIMIT 1[0m
+  [1m[35mDetalle Load (0.4ms)[0m  SELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 3) AND ("detalles"."id" IN (1))
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "asientos" SET "ejercicio_id" = 1, "updated_at" = '2011-03-09 03:04:37.829140' WHERE ("asientos"."id" = 3)[0m
+Redirected to http://localhost:3000/asientos/3
+Completed 302 Found in 91ms
+
+
+Started GET "/asientos/3" for 127.0.0.1 at 2011-03-09 00:04:37 -0300
+  Processing by AsientosController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mAsiento Load (0.2ms)[0m  SELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 3) LIMIT 1
+  [1m[36mDetalle Load (0.4ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 3)[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+Rendered asientos/show.html.erb within layouts/application (87.0ms)
+Completed 200 OK in 134ms (Views: 90.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-09 00:04:40 -0300
+  Processing by AsientosController#index as HTML
+  [1m[35mAsiento Load (0.8ms)[0m  SELECT "asientos".* FROM "asientos"
+  [1m[36mEjercicio Load (0.2ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+Rendered asientos/index.html.erb within layouts/application (43.3ms)
+Completed 200 OK in 97ms (Views: 46.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/asientos/2/edit" for 127.0.0.1 at 2011-03-09 00:04:43 -0300
+  Processing by AsientosController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mAsiento Load (0.4ms)[0m  SELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 2) LIMIT 1
+  [1m[36mEjercicio Load (0.3ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios"[0m
+  [1m[35mDetalle Load (0.2ms)[0m  SELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 2)
+Rendered asientos/_form.html.erb (61.1ms)
+Rendered asientos/edit.html.erb within layouts/application (65.2ms)
+Completed 200 OK in 123ms (Views: 68.5ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/asientos/2" for 127.0.0.1 at 2011-03-09 00:04:46 -0300
+  Processing by AsientosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JYeBJzCq49nPeSE/zetwc7P20MPgg059zWjpgfYCtqw=", "asiento"=>{"descripcion"=>"asiento 2", "fecha(1i)"=>"2011", "fecha(2i)"=>"1", "fecha(3i)"=>"2", "ejercicio_id"=>"1"}, "commit"=>"Update Asiento", "id"=>"2"}
+  [1m[36mAsiento Load (0.3ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 2) LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "asientos" SET "ejercicio_id" = 1, "updated_at" = '2011-03-09 03:04:47.011663' WHERE ("asientos"."id" = 2)
+Redirected to http://localhost:3000/asientos/2
+Completed 302 Found in 65ms
+
+
+Started GET "/asientos/2" for 127.0.0.1 at 2011-03-09 00:04:47 -0300
+  Processing by AsientosController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAsiento Load (0.3ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 2) LIMIT 1[0m
+  [1m[35mDetalle Load (0.2ms)[0m  SELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 2)
+  [1m[36mEjercicio Load (0.2ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+Rendered asientos/show.html.erb within layouts/application (66.8ms)
+Completed 200 OK in 105ms (Views: 70.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-09 00:04:49 -0300
+  Processing by AsientosController#index as HTML
+  [1m[35mAsiento Load (0.7ms)[0m  SELECT "asientos".* FROM "asientos"
+  [1m[36mEjercicio Load (0.2ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+Rendered asientos/index.html.erb within layouts/application (82.7ms)
+Completed 200 OK in 100ms (Views: 86.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/asientos/1/edit" for 127.0.0.1 at 2011-03-09 00:04:52 -0300
+  Processing by AsientosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAsiento Load (0.3ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 1) LIMIT 1[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios"
+  [1m[36mDetalle Load (0.6ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 1)[0m
+  [1m[35mCuenta Load (0.3ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+Rendered asientos/_form.html.erb (180.5ms)
+Rendered asientos/edit.html.erb within layouts/application (184.8ms)
+Completed 200 OK in 204ms (Views: 187.2ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/asientos/1" for 127.0.0.1 at 2011-03-09 00:04:55 -0300
+  Processing by AsientosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JYeBJzCq49nPeSE/zetwc7P20MPgg059zWjpgfYCtqw=", "asiento"=>{"descripcion"=>"apertura", "fecha(1i)"=>"2011", "fecha(2i)"=>"1", "fecha(3i)"=>"1", "ejercicio_id"=>"1", "detalles_attributes"=>{"0"=>{"cuenta_id"=>"1", "debe"=>"10", "haber"=>"", "id"=>"12"}}}, "commit"=>"Update Asiento", "id"=>"1"}
+  [1m[35mAsiento Load (0.3ms)[0m  SELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 1) LIMIT 1
+  [1m[36mDetalle Load (0.6ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 1) AND ("detalles"."id" IN (12))[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "asientos" SET "ejercicio_id" = 1, "updated_at" = '2011-03-09 03:04:55.764767' WHERE ("asientos"."id" = 1)
+Redirected to http://localhost:3000/asientos/1
+Completed 302 Found in 92ms
+
+
+Started GET "/asientos/1" for 127.0.0.1 at 2011-03-09 00:04:55 -0300
+  Processing by AsientosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAsiento Load (0.2ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 1) LIMIT 1[0m
+  [1m[35mDetalle Load (0.6ms)[0m  SELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 1)
+  [1m[36mEjercicio Load (0.2ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+Rendered asientos/show.html.erb within layouts/application (49.4ms)
+Completed 200 OK in 132ms (Views: 52.8ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-09 00:04:58 -0300
+  Processing by AsientosController#index as HTML
+  [1m[36mAsiento Load (0.5ms)[0m  [1mSELECT "asientos".* FROM "asientos"[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+Rendered asientos/index.html.erb within layouts/application (44.2ms)
+Completed 200 OK in 61ms (Views: 47.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-09 00:11:14 -0300
+  Processing by AsientosController#index as HTML
+  [1m[36mAsiento Load (0.5ms)[0m  [1mSELECT "asientos".* FROM "asientos"[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+Rendered asientos/index.html.erb within layouts/application (43.1ms)
+Completed 200 OK in 60ms (Views: 46.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-09 00:12:21 -0300
+  Processing by AsientosController#index as HTML
+  [1m[36mAsiento Load (0.5ms)[0m  [1mSELECT "asientos".* FROM "asientos"[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+Rendered asientos/index.html.erb within layouts/application (45.0ms)
+Completed 200 OK in 62ms (Views: 48.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-09 00:12:52 -0300
+  Processing by AsientosController#index as HTML
+  [1m[36mAsiento Load (0.5ms)[0m  [1mSELECT "asientos".* FROM "asientos"[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+Rendered asientos/index.html.erb within layouts/application (42.6ms)
+Completed 200 OK in 59ms (Views: 46.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/ejercicios" for 127.0.0.1 at 2011-03-09 00:12:56 -0300
+  Processing by EjerciciosController#index as HTML
+  [1m[36mEjercicio Load (0.5ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios"[0m
+Rendered ejercicios/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 27ms (Views: 15.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cuentas" for 127.0.0.1 at 2011-03-09 00:13:00 -0300
+  Processing by CuentasController#index as HTML
+  [1m[35mCuenta Load (0.5ms)[0m  SELECT "cuentas".* FROM "cuentas"
+Rendered cuentas/index.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 27ms (Views: 17.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-09 00:13:04 -0300
+  Processing by AsientosController#index as HTML
+  [1m[36mAsiento Load (0.6ms)[0m  [1mSELECT "asientos".* FROM "asientos"[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+Rendered asientos/index.html.erb within layouts/application (42.8ms)
+Completed 200 OK in 60ms (Views: 46.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/asientos/5" for 127.0.0.1 at 2011-03-09 00:13:09 -0300
+  Processing by AsientosController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAsiento Load (0.2ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 5) LIMIT 1[0m
+  [1m[35mDetalle Load (2.0ms)[0m  SELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 5)
+  [1m[36mEjercicio Load (0.2ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCuenta Load (0.1ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 3) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+Rendered asientos/show.html.erb within layouts/application (87.9ms)
+Completed 200 OK in 174ms (Views: 90.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-09 00:13:13 -0300
+  Processing by AsientosController#index as HTML
+  [1m[36mAsiento Load (0.5ms)[0m  [1mSELECT "asientos".* FROM "asientos"[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+Rendered asientos/index.html.erb within layouts/application (81.7ms)
+Completed 200 OK in 99ms (Views: 85.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/asientos/3/edit" for 127.0.0.1 at 2011-03-09 00:13:17 -0300
+  Processing by AsientosController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mAsiento Load (0.2ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 3) LIMIT 1[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios"
+  [1m[36mEjercicio Load (0.2ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mDetalle Load (0.5ms)[0m  SELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 3)
+  [1m[36mCuenta Load (0.3ms)[0m  [1mSELECT "cuentas".* FROM "cuentas"[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+Rendered asientos/_form.html.erb (192.9ms)
+Rendered asientos/edit.html.erb within layouts/application (197.4ms)
+Completed 200 OK in 216ms (Views: 199.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/asientos/3/detalles/new" for 127.0.0.1 at 2011-03-09 00:13:21 -0300
+  Processing by DetallesController#new as HTML
+  Parameters: {"asiento_id"=>"3"}
+  [1m[36mAsiento Load (0.2ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 3) LIMIT 1[0m
+  [1m[35mCuenta Load (0.3ms)[0m  SELECT "cuentas".* FROM "cuentas"
+Rendered detalles/new.html.erb within layouts/application (80.8ms)
+Completed 200 OK in 113ms (Views: 84.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/asientos/3/detalles" for 127.0.0.1 at 2011-03-09 00:13:28 -0300
+  Processing by DetallesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JYeBJzCq49nPeSE/zetwc7P20MPgg059zWjpgfYCtqw=", "detalle"=>{"cuenta_id"=>"2", "debe"=>"", "haber"=>"10"}, "commit"=>"Create Detalle", "asiento_id"=>"3"}
+  [1m[36mAsiento Load (0.2ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 3) LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "detalles" ("cuenta_id", "asiento_id", "descripcion", "debe", "haber", "created_at", "updated_at") VALUES (2, 3, NULL, NULL, 10.0, '2011-03-09 03:13:28.892566', '2011-03-09 03:13:28.892566')
+Redirected to http://localhost:3000/asientos/3
+Completed 302 Found in 95ms
+
+
+Started GET "/asientos/3" for 127.0.0.1 at 2011-03-09 00:13:28 -0300
+  Processing by AsientosController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mAsiento Load (0.2ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 3) LIMIT 1[0m
+  [1m[35mDetalle Load (0.7ms)[0m  SELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 3)
+  [1m[36mEjercicio Load (0.2ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+Rendered asientos/show.html.erb within layouts/application (50.7ms)
+Completed 200 OK in 135ms (Views: 53.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/asientos/3/edit" for 127.0.0.1 at 2011-03-09 00:13:34 -0300
+  Processing by AsientosController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mAsiento Load (0.2ms)[0m  SELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 3) LIMIT 1
+  [1m[36mEjercicio Load (0.2ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios"[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mDetalle Load (0.8ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 3)[0m
+  [1m[35mCuenta Load (0.3ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.6ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+Rendered asientos/_form.html.erb (198.8ms)
+Rendered asientos/edit.html.erb within layouts/application (203.0ms)
+Completed 200 OK in 222ms (Views: 204.3ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/asientos/3" for 127.0.0.1 at 2011-03-09 00:13:39 -0300
+  Processing by AsientosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JYeBJzCq49nPeSE/zetwc7P20MPgg059zWjpgfYCtqw=", "asiento"=>{"descripcion"=>"dadasdad", "fecha(1i)"=>"2011", "fecha(2i)"=>"1", "fecha(3i)"=>"2", "ejercicio_id"=>"1", "detalles_attributes"=>{"0"=>{"cuenta_id"=>"1", "debe"=>"130", "haber"=>"0", "id"=>"1"}, "1"=>{"cuenta_id"=>"2", "debe"=>"", "haber"=>"130", "id"=>"13"}}}, "commit"=>"Update Asiento", "id"=>"3"}
+  [1m[35mAsiento Load (0.2ms)[0m  SELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 3) LIMIT 1
+  [1m[36mDetalle Load (0.7ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 3) AND ("detalles"."id" IN (1, 13))[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "detalles" SET "haber" = 130.0, "updated_at" = '2011-03-09 03:13:39.369899' WHERE ("detalles"."id" = 13)
+Redirected to http://localhost:3000/asientos/3
+Completed 302 Found in 95ms
+
+
+Started GET "/asientos/3" for 127.0.0.1 at 2011-03-09 00:13:39 -0300
+  Processing by AsientosController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mAsiento Load (0.3ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 3) LIMIT 1[0m
+  [1m[35mDetalle Load (0.7ms)[0m  SELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 3)
+  [1m[36mEjercicio Load (0.2ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+  [1m[36mCuenta Load (0.3ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+Rendered asientos/show.html.erb within layouts/application (51.7ms)
+Completed 200 OK in 134ms (Views: 90.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/asientos/3/edit" for 127.0.0.1 at 2011-03-09 00:13:44 -0300
+  Processing by AsientosController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mAsiento Load (0.3ms)[0m  SELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 3) LIMIT 1
+  [1m[36mEjercicio Load (0.3ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios"[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mDetalle Load (0.9ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 3)[0m
+  [1m[35mCuenta Load (0.4ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.3ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+Rendered asientos/_form.html.erb (207.1ms)
+Rendered asientos/edit.html.erb within layouts/application (212.2ms)
+Completed 200 OK in 236ms (Views: 215.0ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-09 00:14:19 -0300
+  Processing by AsientosController#index as HTML
+  [1m[35mAsiento Load (0.6ms)[0m  SELECT "asientos".* FROM "asientos"
+  [1m[36mEjercicio Load (0.2ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+Rendered asientos/index.html.erb within layouts/application (42.7ms)
+Completed 200 OK in 60ms (Views: 46.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/asientos/4/edit" for 127.0.0.1 at 2011-03-09 00:14:25 -0300
+  Processing by AsientosController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mAsiento Load (0.2ms)[0m  SELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 4) LIMIT 1
+  [1m[36mEjercicio Load (0.2ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios"[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mDetalle Load (1.0ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 4)[0m
+  [1m[35mCuenta Load (0.3ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+Rendered asientos/_form.html.erb (161.7ms)
+Rendered asientos/edit.html.erb within layouts/application (165.9ms)
+Completed 200 OK in 185ms (Views: 167.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-09 00:14:28 -0300
+  Processing by AsientosController#index as HTML
+  [1m[35mAsiento Load (0.6ms)[0m  SELECT "asientos".* FROM "asientos"
+  [1m[36mEjercicio Load (0.2ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+Rendered asientos/index.html.erb within layouts/application (43.8ms)
+Completed 200 OK in 63ms (Views: 47.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/asientos/2/edit" for 127.0.0.1 at 2011-03-09 00:14:31 -0300
+  Processing by AsientosController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mAsiento Load (0.2ms)[0m  SELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 2) LIMIT 1
+  [1m[36mEjercicio Load (0.2ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios"[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mDetalle Load (0.2ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 2)[0m
+Rendered asientos/_form.html.erb (105.4ms)
+Rendered asientos/edit.html.erb within layouts/application (109.7ms)
+Completed 200 OK in 129ms (Views: 112.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/asientos" for 127.0.0.1 at 2011-03-09 00:14:34 -0300
+  Processing by AsientosController#index as HTML
+  [1m[35mAsiento Load (0.5ms)[0m  SELECT "asientos".* FROM "asientos"
+  [1m[36mEjercicio Load (0.2ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+Rendered asientos/index.html.erb within layouts/application (80.7ms)
+Completed 200 OK in 98ms (Views: 84.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/asientos/3/edit" for 127.0.0.1 at 2011-03-09 00:14:36 -0300
+  Processing by AsientosController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mAsiento Load (0.2ms)[0m  SELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 3) LIMIT 1
+  [1m[36mEjercicio Load (0.2ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios"[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+  [1m[36mDetalle Load (0.9ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 3)[0m
+  [1m[35mCuenta Load (0.3ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+Rendered asientos/_form.html.erb (195.0ms)
+Rendered asientos/edit.html.erb within layouts/application (199.4ms)
+Completed 200 OK in 218ms (Views: 201.1ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/asientos/3" for 127.0.0.1 at 2011-03-09 00:14:44 -0300
+  Processing by AsientosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JYeBJzCq49nPeSE/zetwc7P20MPgg059zWjpgfYCtqw=", "asiento"=>{"descripcion"=>"dadasdad", "fecha(1i)"=>"2011", "fecha(2i)"=>"1", "fecha(3i)"=>"2", "ejercicio_id"=>"", "detalles_attributes"=>{"0"=>{"cuenta_id"=>"1", "debe"=>"130", "haber"=>"0", "id"=>"1"}, "1"=>{"cuenta_id"=>"2", "debe"=>"", "haber"=>"130", "id"=>"13"}}}, "commit"=>"Update Asiento", "id"=>"3"}
+  [1m[35mAsiento Load (0.2ms)[0m  SELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 3) LIMIT 1
+  [1m[36mDetalle Load (0.7ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 3) AND ("detalles"."id" IN (1, 13))[0m
+  [1m[35mEjercicio Load (0.3ms)[0m  SELECT "ejercicios".* FROM "ejercicios"
+  [1m[36mDetalle Load (0.8ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 3)[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.3ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cuentas".* FROM "cuentas"
+  [1m[36mCuenta Load (0.3ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+Rendered asientos/_form.html.erb (124.8ms)
+Rendered asientos/edit.html.erb within layouts/application (129.0ms)
+Completed 200 OK in 226ms (Views: 131.1ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/asientos/3" for 127.0.0.1 at 2011-03-09 00:14:48 -0300
+  Processing by AsientosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JYeBJzCq49nPeSE/zetwc7P20MPgg059zWjpgfYCtqw=", "asiento"=>{"descripcion"=>"dadasdad", "fecha(1i)"=>"2011", "fecha(2i)"=>"1", "fecha(3i)"=>"2", "ejercicio_id"=>"1", "detalles_attributes"=>{"0"=>{"cuenta_id"=>"1", "debe"=>"130.0", "haber"=>"0.0", "id"=>"1"}, "1"=>{"cuenta_id"=>"2", "debe"=>"", "haber"=>"130.0", "id"=>"13"}}}, "commit"=>"Update Asiento", "id"=>"3"}
+  [1m[35mAsiento Load (0.2ms)[0m  SELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 3) LIMIT 1
+  [1m[36mDetalle Load (0.7ms)[0m  [1mSELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 3) AND ("detalles"."id" IN (1, 13))[0m
+  [1m[35mEjercicio Load (0.2ms)[0m  SELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1
+Redirected to http://localhost:3000/asientos/3
+Completed 302 Found in 119ms
+
+
+Started GET "/asientos/3" for 127.0.0.1 at 2011-03-09 00:14:48 -0300
+  Processing by AsientosController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mAsiento Load (0.2ms)[0m  [1mSELECT "asientos".* FROM "asientos" WHERE ("asientos"."id" = 3) LIMIT 1[0m
+  [1m[35mDetalle Load (0.7ms)[0m  SELECT "detalles".* FROM "detalles" WHERE ("detalles".asiento_id = 3)
+  [1m[36mEjercicio Load (0.2ms)[0m  [1mSELECT "ejercicios".* FROM "ejercicios" WHERE ("ejercicios"."id" = 1) LIMIT 1[0m
+  [1m[35mCuenta Load (0.2ms)[0m  SELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 1) LIMIT 1
+  [1m[36mCuenta Load (0.2ms)[0m  [1mSELECT "cuentas".* FROM "cuentas" WHERE ("cuentas"."id" = 2) LIMIT 1[0m
+Rendered asientos/show.html.erb within layouts/application (86.1ms)
+Completed 200 OK in 172ms (Views: 89.3ms | ActiveRecord: 2.5ms)

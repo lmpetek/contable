@@ -1,0 +1,18 @@
+imprimo pdf con prawn. ok
+acomode y genere totales en asiento show. ok
+
+
+relaciones: como genero con scaffold un campo de una entidad relacionada con otra entidad ej: detalles y centro_costos ( en este caso un agregado )
+
+rails generate migration AddCentroCostoToDetalle CentroCosto:references
+
+no logro hacerlo funcionar, no logro hacer lo que quiero que haga!
+
+
+route.rb: como ruteo un nuevo metodo del controler para que lo tome el restfull ej: asientos/1/print
+
+
+
+agregué combo para seleccion del ejercicio en asiento y este no graba...
+
+cuando quiero hacer nuevo asiento, se rompe...

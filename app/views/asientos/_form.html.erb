@@ -2,6 +2,8 @@
   <%= f.inputs do %>
     <%= f.input :descripcion %>
     <%= f.input :fecha , :as => :date %>
+    <%= f.input :ejercicio, :as => :select, :collection => Ejercicio.all.map{|c| [c.descripcion, c.id]} %>
+
   <% end %>
   <table class="tabla">
     <thead>

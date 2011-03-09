@@ -1,4 +1,6 @@
 Contable::Application.routes.draw do
+  resources :centro_costos
+
   resources :ejercicios
 
   resources :asientos do

@@ -10,12 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110112215718) do
+ActiveRecord::Schema.define(:version => 20110309020123) do
 
   create_table "asientos", :force => true do |t|
     t.string   "descripcion"
     t.date     "fecha"
     t.integer  "ejercicio_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "centro_costos", :force => true do |t|
+    t.string   "nombre"
+    t.string   "codigo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -28,15 +35,8 @@ ActiveRecord::Schema.define(:version => 20110112215718) do
     t.datetime "updated_at"
   end
 
-  create_table "detalles", :force => true do |t|
-    t.integer  "cuenta_id"
-    t.integer  "asiento_id"
-    t.string   "descripcion"
-    t.decimal  "debe"
-    t.decimal  "haber"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+# Could not dump table "detalles" because of following StandardError
+#   Unknown type 'reference' for column 'CentroCosto'
 
   create_table "ejercicios", :force => true do |t|
     t.string   "descripcion"
