@@ -5,7 +5,7 @@ class Detalle < ActiveRecord::Base
   validates_presence_of :cuenta
   
   def validate
-      errors.add(:haber, "debe cargar un importe") if haber.nil?||debe.nil?||debe+haber <= 0
-      
+      errors.add(:haber, "debe cargar un importe") if (haber.nil? || (haber<0 && (debe.nil?||debe<0)))
+      errors.add(:debe, "debe cargar un importe") if (debe.nil? || (debe<0 && (haber.nil?||haber<0)))
   end
 end
