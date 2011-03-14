@@ -4,13 +4,19 @@ Contable::Application.routes.draw do
   resources :ejercicios
 
   resources :asientos do
-    resources :detalles, :only => [:new, :create, :index]
+    resources :detalles, :only => [:new, :create, :index, :destroy, :edit]
+    member do
+      get 'print', :action => :imprimir 
+    end
+    collection do
+      get 'print'
+    end
   end
 
   #resources :asientos do
   #  post 'print'
   #end
-  
+  resources :detalles
   resources :cuentas
 
   # The priority is based upon order of creation:
@@ -22,7 +28,7 @@ Contable::Application.routes.draw do
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  match 'asientos/:id/print' => 'asientos#imprimir', :as => :imprimir
+  # match 'asientos/:id/print' => 'asientos#imprimir', :as => :imprimir
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):

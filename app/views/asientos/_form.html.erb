@@ -3,7 +3,6 @@
     <%= f.input :descripcion %>
     <%= f.input :fecha , :as => :date %>
     <%= f.input :ejercicio, :as => :select, :collection => Ejercicio.all.map{|c| [c.descripcion, c.id]} %>
-
   <% end %>
   <table class="tabla">
     <thead>
@@ -14,6 +13,7 @@
        <th>cuenta</th>
        <th>debe</th>
        <th>haber</th>
+		<th>centro de costo</th>
       </tr>
     </thead>
     <tbody>
@@ -29,6 +29,13 @@
         <td>
         <%= fd.input :haber, :label => false, :input_html => { :size => 10 } %>
         </td>
+        <td>
+<%= fd.input :centro_costo, :label => false, :as => :select, :collection => CentroCosto.all.map{|c| [c.nombre, c.id]} %>
+        </td>
+
+<td><%= fd.input :id %></td>
+
+	    <td><%= link_to 'Edit', edit_asiento_detalle_path(@asiento.id,  ) %></td>
     <% end %>
     </tr>
   <% end %>
@@ -36,5 +43,3 @@
   </table>
   <%= f.buttons %>
 <% end %>
-<%= link_to 'New detalle', new_asiento_detalle_path(@asiento) %>
-

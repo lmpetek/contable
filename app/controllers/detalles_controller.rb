@@ -24,5 +24,8 @@ class DetallesController < ApplicationController
       end
     end
 
+    def edit
+      @detalle = Detalle.find(params[:id])
+    end
 end
 

@@ -19,7 +19,7 @@
     <td align="right"> <%= asiento.ejercicio.descripcion unless asiento.ejercicio.nil? %> </td>
     <td align="right"> <%= link_to 'Show', asiento %></td>
     <td align="right"> <%= link_to 'Edit', edit_asiento_path(asiento) %></td>
-    <td align="right"> <%= link_to 'Imprimir', asiento, :confirm => 'quiere imprimir?', :method => :print %></td>
+    <td align="right"> <%= link_to 'Imprimir', print_asiento_path(asiento) %></td>
     <td align="right"> <%= link_to 'Destroy', asiento, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
   <% end %>

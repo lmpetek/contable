@@ -1,10 +1,9 @@
-<h1>Detalles#new</h1>
+<h1>Editing detalle</h1>
 
-<%= semantic_form_for [@asiento, @detalle] do |fd| %>
+<%= semantic_form_for [@detalle] do |fd| %>
   <%= fd.input :cuenta, :as => :select, :collection => Cuenta.all.map{|c| [c.nombre, c.id]} %>
   <%= fd.input :debe %>
   <%= fd.input :haber %>
   <%= fd.input :centro_costo, :as => :select, :collection => CentroCosto.all.map{|c| [c.nombre, c.id]} %>
   <%= fd.buttons %>
 <% end %>
-

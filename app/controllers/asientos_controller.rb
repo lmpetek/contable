@@ -91,6 +91,12 @@ class AsientosController < ApplicationController
     end
   end
   
+  def print
+    # imprimir el total de los asientos
+    logger.debug 'imprimio' 
+    
+  end
+  
   def imprimir
      require 'prawn'
      @asiento = Asiento.find(params[:id])
