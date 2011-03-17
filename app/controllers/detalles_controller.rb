@@ -25,22 +25,33 @@ class DetallesController < ApplicationController
     end
 
     def edit
-      @asiento = Asiento.find(params[:asiento_id])
       @detalle = Detalle.find(params[:id])
+      @asiento = Asiento.find(@detalle.asiento_id)
     end
     
-    def update
+#    def update
+#      @detalle = Detalle.find(params[:id])
+#      @asiento = Asiento.find(@detalle.asiento_id)
+#      respond_to do |format|
+#        if @detalle.update_attributes(params[:detalle])
+#          format.html { redirect_to(@asiento, :notice => 'Detalle del asiento was successfully updated.') }
+#          format.xml  { head :ok }
+#        else
+#          format.html { render :action => "edit" }
+#          format.xml  { render :xml => @detalle.errors, :status => :unprocessable_entity }
+#        end
+#      end
+#    end
+    
+    def destroy
       @detalle = Detalle.find(params[:id])
       @asiento = Asiento.find(@detalle.asiento_id)
 
+      @detalle.destroy
+
       respond_to do |format|
-        if @detalle.update_attributes(params[:detalle])
-          format.html { redirect_to(@asiento, :notice => 'Detalle del asiento was successfully updated.') }
-          format.xml  { head :ok }
-        else
-          format.html { render :action => "edit" }
-          format.xml  { render :xml => @detalle.errors, :status => :unprocessable_entity }
-        end
+        format.html { redirect_to(@asiento, :notice => 'Detalle del asiento fue borrado.')  }
+        format.xml  { head :ok }
       end
     end    
 end

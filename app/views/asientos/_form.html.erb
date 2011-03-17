@@ -32,7 +32,7 @@
         <td>
 <%= fd.input :centro_costo, :label => false, :as => :select, :collection => CentroCosto.all.map{|c| [c.nombre, c.id]} %>
         </td>
-	    <td><%= link_to 'Edit', edit_asiento_detalle_path(@asiento, fd.object ) %></td>
+	    <td><%= link_to 'Destroy', fd.object , :confirm => 'Esta serguro?', :method => :delete %></td>
     <% end %>
     </tr>
   <% end %>
